@@ -6,6 +6,12 @@ import reactRefresh from "eslint-plugin-react-refresh";
 
 export default [
   {
+    extends: [
+      "standard",
+      "plugin:react/recommended",
+      "plugin:tailwindcss/recommended",
+      "prettier",
+    ],
     files: ["**/*.{js,jsx}"],
     ignores: ["dist"],
     languageOptions: {
@@ -24,6 +30,15 @@ export default [
       "react-refresh": reactRefresh,
     },
     rules: {
+      "max-len": [2, 250],
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          max: 1,
+          maxEOF: 1,
+        },
+      ],
+      "object-curly-newline": 0,
       "no-unused-vars": [
         "warn",
         { vars: "all", args: "after-used", ignoreRestSiblings: true },
@@ -37,6 +52,7 @@ export default [
         "warn",
         { allowConstantExport: true },
       ],
+      "react/props-types": "off",
     },
   },
 ];
